@@ -23,4 +23,9 @@ router.route('/:userId').put(async (req, res) => {
   res.json(User.toResponse(user));
 });
 
+router.route('/:userId').delete(async (req, res) => {
+  await usersService.deleteUser(req.params.userId);
+  res.status(204);
+});
+
 module.exports = router;

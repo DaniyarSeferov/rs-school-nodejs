@@ -1,4 +1,4 @@
-const USERS = [];
+let USERS = [];
 
 const getAll = async () => USERS;
 
@@ -20,4 +20,12 @@ const update = async (id, data) => {
 	return USERS[index] || null;
 };
 
-module.exports = { getAll, getById, add, update };
+const deleteUser = async (id) => {
+	const index = USERS.findIndex(user => user.id === id);
+
+	if (USERS[index]) {
+		USERS = USERS.filter(user => user.id !== id);
+	}
+};
+
+module.exports = { getAll, getById, add, update, deleteUser };

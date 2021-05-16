@@ -13,4 +13,6 @@ const create = async (user) => {
 
 const update = (id, user) => usersRepo.update(id, user);
 
-module.exports = { getAll, getById, create, update };
+const deleteUser = (id) => usersRepo.deleteUser(id);
+
+module.exports = { getAll, getById, create, update, deleteUser };
