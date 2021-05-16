@@ -1,7 +1,10 @@
-const userMock = require('../../mock/user');
+const USERS = [];
 
-const USER_COUNT = 10;
+const getAll = async () => USERS;
 
-const getAll = async () => new Array(USER_COUNT).fill().map(userMock.generateUser);
+const getById = async (id) => {
+	const users = await getAll();
+	return users.find(user => user.id === id);
+};
 
-module.exports = { getAll };
+module.exports = { getAll, getById };
