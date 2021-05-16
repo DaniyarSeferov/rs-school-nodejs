@@ -11,4 +11,6 @@ const create = async (user) => {
 	return newUser;
 };
 
-module.exports = { getAll, getById, create };
+const update = (id, user) => usersRepo.update(id, user);
+
+module.exports = { getAll, getById, create, update };
